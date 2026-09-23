@@ -52,7 +52,6 @@
         <div class="text-center mb-5">
             <span class="text-success fw-bold text-uppercase tracking-wider">Our Products</span>
             <h2 class="fw-bold display-5">Healthy Fryms Menu</h2>
-            <p class="text-muted">દરેક આઇટમ મહત્તમ ૬ જ ઉમેરી શકાશે</p>
         </div>
 
         <!-- Dynamic Sections Container -->
@@ -68,9 +67,18 @@
                         <div class="fs-4 text-success me-3 bg-light p-3 rounded-circle shadow-sm"><i class="bi bi-geo-alt-fill"></i></div>
                         <div><h6 class="fw-bold mb-0">સરનામું</h6><p class="text-muted mb-0">પટેલ સોસાયટી, રાજકોટ, ગુજરાત, ભારત</p></div>
                     </div>
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center mb-3">
                         <div class="fs-4 text-success me-3 bg-light p-3 rounded-circle shadow-sm"><i class="bi bi-telephone-fill"></i></div>
                         <div><h6 class="fw-bold mb-0"> Shop WhatsApp Number</h6><p class="text-success fw-bold fs-5 mb-0">+91 97243 90808</p></div>
+                    </div>
+                    
+                    <!-- Delivery / Shipping Charges Info Box -->
+                    <div class="alert alert-warning border border-warning rounded-3 mt-4">
+                        <h6 class="fw-bold text-dark"><i class="bi bi-truck me-2"></i>ડિલિવરી અને કુરિયર ચાર્જ અંગે માહિતી:</h6>
+                        <ul class="small mb-0 ps-3 text-dark">
+                            <li class="mb-1"><strong>COD (કેશ ઓન ડિલિવરી):</strong> રાજકોટ કે રાજકોટ બહારના ઓર્ડર માટે ₹૩૦ થી ₹૧૦૦ સુધી કુરિયર / ડિલિવરી ચાર્જ લાગશે.</li>
+                            <li><strong>UPI / QR Code (ઓનલાઈન પેમેન્ટ):</strong> રાજકોટ કે રાજકોટ બહારના ઓર્ડર માટે ₹૩૦ થી ₹૭૦ સુધી કુરિયર / ડિલિવરી ચાર્જ લાગશે.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -91,6 +99,12 @@
                                 <textarea class="form-control" id="customerAddress" rows="2" placeholder="પહોંચાડવાનું પૂરેપૂરું સરનામું લખો..." required></textarea>
                             </div>
 
+                            <!-- Customer Note Field -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">ઓર્ડર અંગે કોઈ ખાસ નૉંધ (Order Note)</label>
+                                <textarea class="form-control" id="customerNote" rows="2" placeholder="દા.ત. ડિલિવરી સમય, પેકિંગ અંગે સૂચના વગેરે (મરજિયાત)"></textarea>
+                            </div>
+
                             <!-- Payment Options -->
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">ચુકવણીનો વિકલ્પ પસંદ કરો (Payment Option)</label>
@@ -98,26 +112,29 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="paymentOption" id="payCOD" value="COD (Cash on Delivery)" checked onclick="togglePaymentFields()">
                                         <label class="form-check-label" for="payCOD">
-                                            1. COD (Cash on Delivery - કેશ ઓન ડિલિવરી)
+                                            1. COD (Cash on Delivery - કેશ ઓન ડિલિવરી) <small class="text-muted">(ચાર્જ: ₹૩૦ થી ₹૧૦૦)</small>
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="paymentOption" id="payUPI" value="UPI Payment" onclick="togglePaymentFields()">
                                         <label class="form-check-label" for="payUPI">
-                                            2. UPI Payment (ઓનલાઈન પેમેન્ટ)
+                                            2. UPI Payment (ઓનલાઈન પેમેન્ટ) <small class="text-muted">(ચાર્જ: ₹૩૦ થી ₹૭૦)</small>
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="paymentOption" id="payQR" value="QR Code Payment" onclick="togglePaymentFields()">
                                         <label class="form-check-label" for="payQR">
-                                            3. QR Code (ક્યુઆર કોડ સ્કેન કરો)
+                                            3. QR Code (ક્યુઆર કોડ સ્કેન કરો) <small class="text-muted">(ચાર્જ: ₹૩૦ થી ₹૭૦)</small>
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- QR Code & Payment Verification Section (Hidden by default) -->
-                            <div id="qrCodeContainer" class="text-center mb-4 p-3 border rounded bg-white shadow-sm" style="display: none;">
+                            <!-- QR Code & Payment Verification Section -->
+                            <div id="qrCodeContainer" class="text-center mb-4 p-3 border border-danger rounded bg-white shadow-sm" style="display: none;">
+                                <h2 class="fs-5 fw-bold text-danger mb-3 p-2 bg-light rounded border border-danger">
+                                    ⚠️ સૂચના: UPI અથવા QR Code થી પેમેન્ટ કરનારે પેમેન્ટ પહેલાં એડવાન્સમાં કરવાનું રહેશે!
+                                </h2>
                                 <h6 class="fw-bold text-success mb-2">સ્કેન કરો અને પેમેન્ટ કરો (Scan QR Code)</h6>
                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=9724390808@paytm&pn=HealthyFryms" alt="Payment QR Code" class="img-fluid rounded border p-1 mb-2" style="max-width: 160px;">
                                 <p class="small text-muted mb-2">પેમેન્ટ કર્યા પછી નીચે તમારા ટ્રાન્ઝેક્શનનો યુટીઆર / રેફરન્સ નંબર (UTR/Transaction ID) લખો:</p>
@@ -165,25 +182,35 @@
     <!-- Bootstrap 5 JS & Script Logic -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Categories and New Items List Array Data
+        // Weight options configuration
+        const weightOptions = [
+            { label: "250gm", multiplier: 1 },
+            { label: "500gm", multiplier: 2 },
+            { label: "1kg", multiplier: 4 }
+        ];
+
+        // Categories and Items Data
         const categories = [
             {
                 categoryName: "Healthy Fryms & Special Snacks",
                 items: [
-                    { id: 1, name: "રાગી ભૂંગરા", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 2, name: "બિંગો", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 3, name: "ક્રિસ્પી બાઇટ્સ", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 4, name: "મકાઈ સ્ટીક", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 5, name: "મકાઈ વેફર્સ", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 6, name: "ઘઉં સ્ટીક", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 7, name: "કુરકુરે", price: 60, unit: "૨૫૦ ગ્રામ" },
-                    { id: 8, name: "ચીઝ બોલ", price: 60, unit: "૨૦૦ ગ્રામ" },
-                    { id: 9, name: "પોપ રિંગ", price: 60, unit: "૨૦૦ ગ્રામ" },
-                    { id: 10, name: "Aata Maggi (No Palm Oil, No Maida / 100% Aata)", price: 100, unit: "૫ પેકેટ" }
+                    { id: 1, name: "રાગી ભૂંગરા", basePrice: 60, hasVariants: true },
+                    { id: 2, name: "બિંગો", basePrice: 60, hasVariants: true },
+                    { id: 3, name: "ક્રિસ્પી બાઇટ્સ", basePrice: 60, hasVariants: true },
+                    { id: 4, name: "મકાઈ સ્ટીક", basePrice: 60, hasVariants: true },
+                    { id: 5, name: "મકાઈ વેફર્સ", basePrice: 60, hasVariants: true },
+                    { id: 6, name: "ઘઉં સ્ટીક", basePrice: 60, hasVariants: true },
+                    { id: 7, name: "કુરકુરે", basePrice: 60, hasVariants: true },
+                    { id: 8, name: "ચીઝ બોલ", basePrice: 60, hasVariants: true },
+                    { id: 9, name: "પોપ રિંગ", basePrice: 60, hasVariants: true },
+                    { id: 10, name: "Aata Maggi (No Palm Oil, No Maida / 100% Aata)", basePrice: 100, unitText: "૫ પેકેટ", hasVariants: false }
                 ]
             }
         ];
 
+        // Track selected weight for each item (default 250gm)
+        let selectedWeights = {};
+        // Cart state stored by unique key (productId + weight)
         let cart = {};
 
         // Render all categorized sections and tables
@@ -200,11 +227,11 @@
                                 <table class="table table-hover align-middle mb-0">
                                     <thead class="table-success text-dark">
                                         <tr>
-                                            <th class="py-3 ps-4" style="width: 80px;">ક્રમ</th>
+                                            <th class="py-3 ps-4" style="width: 60px;">ક્રમ</th>
                                             <th class="py-3">વસ્તુનું નામ (Item Name)</th>
-                                            <th class="py-3">જથ્થો / એકમ (Unit)</th>
+                                            <th class="py-3" style="width: 170px;">પેકેટ સાઈઝ (Weight)</th>
                                             <th class="py-3">ભાવ (Price)</th>
-                                            <th class="py-3 text-center">જથ્થો ઉમેરો / ઘટાડો (Max 6)</th>
+                                            <th class="py-3 text-center">જથ્થો ઉમેરો / ઘટાડો</th>
                                             <th class="py-3 pe-4 text-end">કુલ કિંમત (Total)</th>
                                         </tr>
                                     </thead>
@@ -212,15 +239,36 @@
                 `;
 
                 cat.items.forEach((p, itemIndex) => {
-                    let qty = cart[p.id] ? cart[p.id].qty : 0;
-                    let itemTotal = qty * p.price;
+                    if (p.hasVariants && !selectedWeights[p.id]) {
+                        selectedWeights[p.id] = weightOptions[0]; // Default 250gm
+                    }
+
+                    let currentWeight = selectedWeights[p.id] || { label: p.unitText || "", multiplier: 1 };
+                    let currentUnitPrice = p.basePrice * currentWeight.multiplier;
+                    
+                    let cartKey = p.hasVariants ? `${p.id}_${currentWeight.label}` : `${p.id}_fixed`;
+                    let qty = cart[cartKey] ? cart[cartKey].qty : 0;
+                    let itemTotal = qty * currentUnitPrice;
+
+                    // Generate weight select element if variants exist
+                    let weightSelectorHTML = "";
+                    if (p.hasVariants) {
+                        weightSelectorHTML = `<select class="form-select form-select-sm border-success fw-semibold" onchange="changeWeight(${p.id}, this.value)">`;
+                        weightOptions.forEach(w => {
+                            let selected = (w.label === currentWeight.label) ? "selected" : "";
+                            weightSelectorHTML += `<option value="${w.label}" ${selected}>${w.label}</option>`;
+                        });
+                        weightSelectorHTML += `</select>`;
+                    } else {
+                        weightSelectorHTML = `<span class="badge bg-light text-dark border">${p.unitText}</span>`;
+                    }
 
                     sectionHTML += `
                         <tr>
                             <td class="ps-4 fw-bold text-muted">${itemIndex + 1}</td>
                             <td class="fw-bold text-dark">${p.name}</td>
-                            <td><span class="badge bg-light text-dark border">${p.unit}</span></td>
-                            <td class="text-success fw-bold">₹${p.price}</td>
+                            <td>${weightSelectorHTML}</td>
+                            <td class="text-success fw-bold">₹${currentUnitPrice}</td>
                             <td class="text-center">
                                 <div class="d-inline-flex align-items-center border rounded-pill bg-white px-2 py-1 shadow-sm">
                                     <button class="btn btn-sm btn-outline-danger border-0 rounded-circle px-2" onclick="updateQty(${p.id}, -1)">-</button>
@@ -245,6 +293,15 @@
             });
         }
 
+        // Handle Weight Change from Dropdown
+        function changeWeight(productId, weightLabel) {
+            const foundWeight = weightOptions.find(w => w.label === weightLabel);
+            if (foundWeight) {
+                selectedWeights[productId] = foundWeight;
+                renderStoreSections();
+            }
+        }
+
         // Toggle Payment Verification Fields
         function togglePaymentFields() {
             const payCOD = document.getElementById('payCOD');
@@ -253,13 +310,13 @@
 
             if (payCOD.checked) {
                 qrContainer.style.display = 'none';
-                txInput.value = ''; // Reset transaction id if COD chosen
+                txInput.value = '';
             } else {
                 qrContainer.style.display = 'block';
             }
         }
 
-        // Update quantity with max 6 limit rule
+        // Update quantity in cart
         function updateQty(productId, change) {
             let foundProduct = null;
             categories.forEach(cat => {
@@ -267,19 +324,27 @@
                 if (found) foundProduct = found;
             });
 
-            if (!cart[productId]) {
-                if (change > 0 && foundProduct) {
-                    cart[productId] = { ...foundProduct, qty: 1 };
+            if (!foundProduct) return;
+
+            let currentWeight = selectedWeights[productId] || { label: foundProduct.unitText || "", multiplier: 1 };
+            let unitPrice = foundProduct.basePrice * currentWeight.multiplier;
+            let cartKey = foundProduct.hasVariants ? `${productId}_${currentWeight.label}` : `${productId}_fixed`;
+
+            if (!cart[cartKey]) {
+                if (change > 0) {
+                    cart[cartKey] = {
+                        id: productId,
+                        name: foundProduct.name,
+                        weightLabel: currentWeight.label,
+                        price: unitPrice,
+                        qty: 1
+                    };
                 }
             } else {
-                let newQty = cart[productId].qty + change;
-                if (newQty > 6) {
-                    alert('તમે આ વસ્તુ મહત્તમ ૬ જ ઉમેરી શકો છો!');
-                    return;
-                }
-                cart[productId].qty = newQty;
-                if (cart[productId].qty <= 0) {
-                    delete cart[productId];
+                let newQty = cart[cartKey].qty + change;
+                cart[cartKey].qty = newQty;
+                if (cart[cartKey].qty <= 0) {
+                    delete cart[cartKey];
                 }
             }
             renderStoreSections();
@@ -307,18 +372,19 @@
             cartKeys.forEach(key => {
                 const item = cart[key];
                 totalCount += item.qty;
-                subTotal += item.price * item.qty;
+                let lineTotal = item.price * item.qty;
+                subTotal += lineTotal;
 
                 container.innerHTML += `
                     <div class="d-flex align-items-center justify-content-between border-bottom py-3">
                         <div>
-                            <h6 class="mb-0 fw-bold small">${item.name}</h6>
-                            <small class="text-muted">₹${item.price} / ${item.unit} | કુલ: ₹${item.price * item.qty}</small>
+                            <h6 class="mb-0 fw-bold small">${item.name} (${item.weightLabel})</h6>
+                            <small class="text-muted">₹${item.price} x ${item.qty} | કુલ: ₹${lineTotal}</small>
                         </div>
                         <div class="d-flex align-items-center">
-                            <button class="btn btn-sm btn-outline-danger px-2 py-0" onclick="updateQty(${item.id}, -1)">-</button>
+                            <button class="btn btn-sm btn-outline-danger px-2 py-0" onclick="updateQtyFromCart('${key}', -1)">-</button>
                             <span class="mx-2 fw-bold small">${item.qty}</span>
-                            <button class="btn btn-sm btn-outline-success px-2 py-0" onclick="updateQty(${item.id}, 1)">+</button>
+                            <button class="btn btn-sm btn-outline-success px-2 py-0" onclick="updateQtyFromCart('${key}', 1)">+</button>
                         </div>
                     </div>
                 `;
@@ -328,11 +394,23 @@
             subTotalElement.innerText = '₹' + subTotal;
         }
 
+        // Direct Cart Quantity Update helper
+        function updateQtyFromCart(cartKey, change) {
+            if (cart[cartKey]) {
+                cart[cartKey].qty += change;
+                if (cart[cartKey].qty <= 0) {
+                    delete cart[cartKey];
+                }
+            }
+            renderStoreSections();
+            updateCartUI();
+        }
+
         function triggerCheckout() {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
             const offcanvasElement = document.getElementById('cartOffcanvas');
             const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-            offcanvas.hide();
+            if (offcanvas) offcanvas.hide();
         }
 
         function checkoutWhatsApp(event) {
@@ -340,16 +418,16 @@
             const name = document.getElementById('customerName').value;
             const phoneNum = document.getElementById('customerPhone').value;
             const address = document.getElementById('customerAddress').value;
+            const note = document.getElementById('customerNote').value.trim();
             
             const paymentOption = document.querySelector('input[name="paymentOption"]:checked').value;
             const txInput = document.getElementById('transactionId');
             const paymentError = document.getElementById('paymentError');
 
-            // Check if Online Payment is selected and Transaction ID is empty
             if ((paymentOption === "UPI Payment" || paymentOption === "QR Code Payment") && txInput.value.trim() === "") {
                 paymentError.classList.remove('d-none');
                 txInput.focus();
-                alert('કૃપા કરીને પેમેન્ટ પૂર્ણ કરી તેનો Transaction ID/UTR નંબર દાખલ કરો!');
+                alert('કૃપા કરીને પેમેન્ટ પૂરું કરી તેનો Transaction ID/UTR નંબર દાખલ કરો!');
                 return;
             } else {
                 paymentError.classList.add('d-none');
@@ -366,7 +444,7 @@
             Object.values(cart).forEach((item, index) => {
                 let itemTotal = item.price * item.qty;
                 total += itemTotal;
-                message += `${index + 1}. ${item.name} - ${item.qty} ${item.unit} (₹${item.price} x ${item.qty} = ₹${itemTotal})\n`;
+                message += `${index + 1}. ${item.name} (${item.weightLabel}) - ${item.qty} પેકેટ/જથ્થો (₹${item.price} x ${item.qty} = ₹${itemTotal})\n`;
             });
 
             message += `\n*કુલ રકમ (Sub Total): ₹${total}*\n`;
@@ -378,7 +456,11 @@
 
             message += `\nગ્રાહકનું નામ: ${name}\n`;
             message += `મોબાઈલ નંબર: ${phoneNum}\n`;
-            message += `સરનામું: ${address}`;
+            message += `સરનામું: ${address}\n`;
+            
+            if (note !== "") {
+                message += `નૉંધ (Note): ${note}\n`;
+            }
 
             const storeWhatsApp = "919724390808";
             const url = `https://wa.me/${storeWhatsApp}?text=${encodeURIComponent(message)}`;
